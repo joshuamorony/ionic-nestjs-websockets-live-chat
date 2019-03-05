@@ -1,0 +1,40 @@
+<ion-header no-border>
+  <ion-toolbar color="tertiary">
+    <ion-title>Live Chat</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card>
+    <ion-card-content>
+        There are currently <strong>{{users}}</strong> users online. Start chatting!
+    </ion-card-content>
+  </ion-card>
+
+	<ion-list lines="none">
+
+		<ion-item *ngFor="let message of messages">
+      {{message}}
+		</ion-item>
+	
+	</ion-list>
+
+</ion-content>
+
+<ion-footer>
+
+	<ion-toolbar>
+
+		<textarea spellcheck="true" autoComplete="true" autocorrect="true" rows="1" class="chat-input" [(ngModel)]="message" placeholder="type message..." (keyup.enter)="addChat()">
+		</textarea>
+
+		<ion-buttons slot="primary">
+			<ion-button (click)="addChat()" slot="end" class="send-chat-button">
+				 <ion-icon slot="icon-only" name="send"></ion-icon>
+	    </ion-button>
+		</ion-buttons>
+
+	</ion-toolbar>
+
+</ion-footer>
